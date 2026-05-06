@@ -1,8 +1,23 @@
-# Gravity Books Data Warehouse, SSAS Cube & Power BI Dashboard
+<img width="546" height="637" alt="ERD" src="https://github.com/user-attachments/assets/2b1b5157-08ed-421a-8e80-dedd4cf8a0f2" /># Gravity Books Data Warehouse, SSAS Cube & Power BI Dashboard
 
 ## Project Overview
 
-This project demonstrates the design and implementation of an end-to-end Business Intelligence solution for a fictional online bookstore By Transforming 3NF design Schema to SnowFlake schema, **Gravity Books**.
+This project demonstrates the design and implementation of an end-to-end Business Intelligence solution for a fictional online bookstore By Transforming 3NF design Schema to Star schema, **Gravity Books**.
+
+### ERD diagram of 3NF gravity Books database: 
+<img width="546" height="637" alt="ERD" src="https://github.com/user-attachments/assets/2b735155-2de3-4677-b7aa-e1741c56d569" />
+
+### Dimensional Modeling of gravity books Datawarehouse : 
+<img width="628" height="835" alt="Screenshot 2026-04-22 202653" src="https://github.com/user-attachments/assets/1dbd4d12-0554-423b-9bb4-c5583f17cae7" />
+
+### Final Datawarehouse schema : 
+<img width="1122" height="886" alt="Screenshot 2026-04-22 201634" src="https://github.com/user-attachments/assets/0f5f74b5-5f12-460f-857a-bb13c26f96e8" />
+
+### SSAS cube : 
+<img width="804" height="637" alt="Screenshot 2026-04-22 200026" src="https://github.com/user-attachments/assets/1fdc06b6-77e0-4941-92ff-64a155031255" />
+
+
+---
 
 The solution includes:
 
@@ -63,3 +78,68 @@ Dimensions and Fact Tables
 SSAS Multidimensional Cube
     ↓
 Power BI Dashboard
+```
+# Data Warehouse Design
+
+The data warehouse is designed using a **Star Schema** with multiple dimension tables and fact/bridge tables to support analytical workloads.
+
+---
+
+##  Dimension Tables
+
+| Dimension        | Description |
+|-----------------|------------|
+| **Dim_Date**     | Calendar attributes such as year, quarter, month, day, weekday, and weekend flag |
+| **Dim_Book**     | Book details including title, ISBN, publisher, language, pages, and publication date |
+| **Dim_Author**   | Author details |
+| **Dim_Customer** | Customer and geography details |
+| **Dim_Shipping** | Shipping method details |
+| **Dim_OrderStatus** | Order status details |
+
+---
+
+##  Fact and Bridge Tables
+
+| Table               | Description |
+|--------------------|------------|
+| **Fact_OrderLine** | Stores order line transactions including price and shipping cost |
+| **Bridge_BookAuthor** | Handles the many-to-many relationship between books and authors |
+
+---
+
+##  Star Schema
+
+The central fact table is **Fact_OrderLine**, connected to multiple dimensions.
+
+
+The cube enables analytical operations such as slicing and dicing across:
+
+- Date  
+- Book  
+- Author  
+- Customer geography  
+- Shipping method  
+- Order status  
+
+---
+
+##  Measure Groups
+
+| Measure Group        | Source Table |
+|---------------------|-------------|
+| **Fact Order Line** | Fact_OrderLine |
+| **Bridge Book Author** | Bridge_BookAuthor |
+
+---
+
+## Base Measures
+
+| Measure                     | Description |
+|----------------------------|------------|
+| **Price**                  | Sales price from order lines |
+| **Shipping Cost**          | Shipping cost from order lines |
+| **Order Line Count**       | Number of order lines |
+| **Author Weighting Factor**| Used for many-to-many author/book analysis |
+
+---
+
