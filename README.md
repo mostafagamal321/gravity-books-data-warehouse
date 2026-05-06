@@ -1,4 +1,4 @@
-<img width="546" height="637" alt="ERD" src="https://github.com/user-attachments/assets/2b1b5157-08ed-421a-8e80-dedd4cf8a0f2" /># Gravity Books Data Warehouse, SSAS Cube & Power BI Dashboard
+# Gravity Books Data Warehouse, SSAS Cube & Power BI Dashboard
 
 ## Project Overview
 
