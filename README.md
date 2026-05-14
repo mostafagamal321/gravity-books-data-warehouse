@@ -1,5 +1,8 @@
 # Gravity Books Data Warehouse, SSAS Cube & Power BI Dashboard
+## Power BI Dashboard
+<img width="1087" height="617" alt="Screenshot 2026-05-14 175525" src="https://github.com/user-attachments/assets/1a44187f-1121-4c4a-aaec-938b0e8e0c5b" />
 
+---
 ## Project Overview
 
 This project demonstrates the design and implementation of an end-to-end Business Intelligence solution for a fictional online bookstore By Transforming 3NF design Schema to Star schema, **Gravity Books**.
